@@ -9,8 +9,10 @@ const app = express()
 const cors = require('cors')
 
 //Database setup
+console.log(process.env.MONGO_URL)
 mongoose.connect(process.env.MONGO_URL, {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    // useUnifiedTopology: true
 })
 .then(() => console.log('mongodb connected'))
 
