@@ -8,6 +8,8 @@ const path = require('path')
 const app = express()
 const cors = require('cors')
 
+const serverless = require('serverless-http')
+
 //Database setup
 console.log(process.env.MONGO_URL)
 mongoose.connect(process.env.MONGO_URL, {
@@ -28,4 +30,5 @@ app.get('/', (req, res) => {
     return res.send('nossa chega de mandar oi')
 })
 
-app.listen(5655, () => console.log('rodando'))
+module.exports.handler = serverless(app)
+// app.listen(5655, () => console.log('rodando'))
