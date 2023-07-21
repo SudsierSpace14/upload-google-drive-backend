@@ -2,4 +2,4 @@ node_modules
 .env
 
 tmp/uploads/*
-!tpm/uploads/.gitkeep
+!tmp/uploads/.gitkeep
