@@ -9,9 +9,9 @@ const Post = require('./models/Post')
 
 routes.post('/posts', multer(multerConfig).single("file"), async (req, res) => {
     
-    const {originalname, size, filename, path} = req.file
+    const {originalname, size, filename, path, stream} = req.file
     
-    const file = await upload(filename)
+    const file = await upload(filename, stream)
 
     const post = await Post.create({
         name: originalname,
