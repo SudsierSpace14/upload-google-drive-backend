@@ -15,7 +15,7 @@ async function UploadFile(name, stream){
                 name: `${name}`,
             },
             media: {
-                body: fs.createReadStream(filePath) || stream
+                body: stream
             },
             fields: '*'
         })
