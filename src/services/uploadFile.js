@@ -7,7 +7,7 @@ const drive = require('./app')
 async function UploadFile(name, stream){
     try{
 
-        // const filePath = path.join(__dirname, `../../tmp/uploads/${name}`)
+        const filePath = path.join(__dirname, `../../tmp/uploads/${name}`)
 
         const response = await drive.files.create({
             requestBody: {
@@ -15,7 +15,7 @@ async function UploadFile(name, stream){
                 name: `${name}`,
             },
             media: {
-                body: stream
+                body: fs.createReadStream(filePath)
             },
             fields: '*'
         })
